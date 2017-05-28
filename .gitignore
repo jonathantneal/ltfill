@@ -1,0 +1,8 @@
+node_modules
+.*
+!.appveyor.yml
+!.editorconfig
+!.gitignore
+!.travis.yml
+*.log*
+ltfill.es5.js*

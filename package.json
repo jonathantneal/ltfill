@@ -1,0 +1,52 @@
+{
+  "name": "ltfill",
+  "version": "1.0.0",
+  "description": "A speculative polyfill to use the lt element in HTML",
+  "author": "Jonathan Neal <jonathantneal@hotmail.com>",
+  "license": "CC0-1.0",
+  "repository": "jonathantneal/ltfill",
+  "homepage": "https://github.com/jonathantneal/ltfill#readme",
+  "bugs": "https://github.com/jonathantneal/ltfill/issues",
+  "module": "ltfill.js",
+  "main": "ltfill.es5.js",
+  "files": [
+    "ltfill.js",
+    "ltfill.es5.js",
+    "ltfill.es5.js.map"
+  ],
+  "scripts": {
+    "clean": "git clean -X -d -f",
+    "prepublish": "npm test && rollup --config .rollup.js",
+    "test": "eslint ltfill.js --cache --ignore-pattern .gitignore"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.5.1",
+    "eslint": "^3.19.0",
+    "eslint-config-dev": "^2.0.0",
+    "pre-commit": "^1.2.2",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-uglify": "^2.0.1"
+  },
+  "eslintConfig": {
+    "extends": "dev"
+  },
+  "keywords": [
+    "lt",
+    "list",
+    "title",
+    "speculative",
+    "element",
+    "polyfill",
+    "ponyfill",
+    "dl",
+    "li",
+    "menu",
+    "ol",
+    "ul"
+  ]
+}
