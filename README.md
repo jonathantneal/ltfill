@@ -8,15 +8,6 @@
 
 The `lt` element would allow web authors to provide titles or captions to lists.
 
----
-
-**[ltfill] is a [speculative polyfill] which emulates a proposed feature of the
-web platform. Therefore, it should not be used in real production situations,
-as it would otherwise risk creating problems for the development of the Web if
-it became widely used prior to standardization and implementation.**
-
----
-
 ```html
 <ul>
   <lt>Important Seussian Characters</lt>
@@ -52,6 +43,16 @@ it became widely used prior to standardization and implementation.**
 
 **[Try it right now using CodePen]**
 
+---
+
+**[ltfill] is a [speculative polyfill] which emulates a proposed feature of the
+web platform. Therefore, it should only be used in real production situations
+as `x-lt` and not `lt`, as the later would otherwise risk creating problems for
+the development of the Web if it became widely used prior to standardization
+and implementation.**
+
+---
+
 ## Usage
 
 Add [ltfill] to your build tool:
@@ -70,25 +71,24 @@ import ltfill from 'ltfill';
 
 ### observe
 
-Use the `observe` method to watch for list titles and assign them their parent
-list the appropriate aria label.
+The `observe` method watches list title elements.
 
 ```js
 ltfill.observe(
-  document.documentElement // where list titles will be observed
+  document.documentElement, // where list titles will be observed
+  'x-h' // tag name of list titles
 );
 ```
 
-The default behavior is to assign an `id` attribute to the list title if it
-does not already have one, and then to assign an `aria-labelledby` attribute 
-to the list title’s parent linking to that list title if they do not already
-have one.
+The `observe` method will assign a unique `id` to the list title, if it does
+not already have one. It will then assign an `aria-labelledby` to the list
+title’s parent, if it does not already have one, referencing the list title.
 
 Example:
 
 ```html
 <ol aria-labelledby="__ltfill0">
-  <lt id="__ltfill0">Days of the week</lt>
+  <x-lt id="__ltfill0">Days of the week</x-lt>
   <li>Monday</li>
   <li>Tuesday</li>
   <li>Wednesday</li>
@@ -103,26 +103,27 @@ Example:
 
 ### style
 
-Use the `style` method to include styles for list titles.
+The `style` method adds styles for list title elements.
 
 ```js
 ltfill.style(
-  document.head, // where the list title <style> will be appended
-  'font-style:italic' // optional list title styles (otherwise display:block;font-weight:bold)
+  document.head, // where <style> will be appended
+  'x-lt', // tag name of list titles
+  'font-style:italic' // optional styles (otherwise display:block;font-weight:bold)
 );
 ```
 
 Example:
 
 ```html
-<style id="ltfill-style">lt{display:block;font-weight:bold}</style>
+<style id="ltfill-style">x-lt{display:block;font-weight:bold}</style>
 ```
 
 [npm-url]: https://www.npmjs.com/package/ltfill
 [npm-img]: https://img.shields.io/npm/v/ltfill.svg
 [cli-url]: https://travis-ci.org/jonathantneal/ltfill
 [cli-img]: https://img.shields.io/travis/jonathantneal/ltfill.svg
-[soc-url]: https://twitter.com/intent/tweet?text=A%20speculative%20polyfill%20to%20use%20the%20lt%20element%20in%20HTML%20https%3A%2F%2Fjonathantneal.github.io%2Fltfill%2F
+[soc-url]: https://twitter.com/intent/tweet?text=A%20speculative%20polyfill%20to%20use%20the%20lt%20element%20in%20HTML%20https%3A%2F%2Fgithub.com%2Fjonathantneal%2Fltfill
 [soc-img]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
 [ltfill]: https://github.com/jonathantneal/ltfill

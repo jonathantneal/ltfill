@@ -1,6 +1,6 @@
 {
   "name": "ltfill",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A speculative polyfill to use the lt element in HTML",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
   "license": "CC0-1.0",
@@ -36,17 +36,19 @@
     "extends": "dev"
   },
   "keywords": [
-    "lt",
+    "html",
     "list",
     "title",
-    "speculative",
     "element",
-    "polyfill",
-    "ponyfill",
+    "lt",
     "dl",
     "li",
     "menu",
     "ol",
-    "ul"
+    "ul",
+    "speculative",
+    "element",
+    "polyfill",
+    "ponyfill"
   ]
 }
